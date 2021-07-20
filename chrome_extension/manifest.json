@@ -1,0 +1,41 @@
+{
+  "name": "GodsEye",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "下载Amazon businessReport数据",
+  "icons": 
+  {             
+    "62": "imgs/1_0.png",            
+    "128": "imgs/1.png" 
+  },  
+  "browser_action": {
+    "default_icon": "imgs/1_4.png",
+    "default_title": "GodsEye",
+    "default_popup": "home.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "cookies",
+    "storage",
+    "history",
+    "declarativeContent",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://sellercentral.amazon.com/*"],
+      "js": ["js/script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  }
+}
